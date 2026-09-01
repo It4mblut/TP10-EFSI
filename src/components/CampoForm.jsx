@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-export const CampoFormulario = ({ control, errors, name, label, rules, ...rest }) => {
+export const CampoForm = ({ control, errors, name, label, rules, ...rest }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>

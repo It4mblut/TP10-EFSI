@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-export const SelectorEntrada = ({ control, errors, rules }) => {
+export const TipoEntrada = ({ control, errors, rules }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Tipo de entrada</Text>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, ActivityIndicator} from 'react-native';
 import { useForm } from 'react-hook-form';
-import { CampoFormulario } from './CampoFormulario';
-import { SelectorEntrada } from './SelectorEntrada';
+import { CampoForm } from './CampoForm';
+import { TipoEntrada } from './TipoEntrada';
 import { TicketConfirmacion } from './TicketConfirmacion';
 
 export const PantallaInscripcion = () => {
@@ -39,14 +39,14 @@ export const PantallaInscripcion = () => {
           <TicketConfirmacion datos={datosInscripto} onReset={handleReset} />
         ) : (
           <View style={styles.formContainer}>
-            <CampoFormulario control={control} errors={errors} name="nombreCompleto" label="Nombre Completo"
+            <CampoForm control={control} errors={errors} name="nombreCompleto" label="Nombre Completo"
               rules={{
                 required: 'Ingresa tu nombre completo',
                 validate: (v) => v.trim().length >= 3 || 'Ingresa tu nombre completo',
               }}
             />
 
-            <CampoFormulario
+            <CampoForm
               control={control}
               errors={errors}
               name="email"
@@ -62,7 +62,7 @@ export const PantallaInscripcion = () => {
               }}
             />
 
-            <CampoFormulario
+            <CampoForm
               control={control}
               errors={errors}
               name="edad"
@@ -77,13 +77,13 @@ export const PantallaInscripcion = () => {
               }}
             />
 
-            <SelectorEntrada
+            <TipoEntrada
               control={control}
               errors={errors}
               rules={{ required: 'Elegi un tipo de entrada' }}
             />
 
-            <CampoFormulario
+            <CampoForm
               control={control}
               errors={errors}
               name="telefono"
