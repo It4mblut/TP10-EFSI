@@ -6,19 +6,23 @@ export default function Header({ vistaActual, setVistaActual, cantidadFavoritos 
     <View style={styles.header}>
       <Text style={styles.title}>Pokédex</Text>
       <View style={styles.nav}>
-        <Pressable
-          style={[styles.navButton, vistaActual === 'home' && styles.activeButton]}
-          onPress={() => setVistaActual('home')}
-        >
-          <Text style={styles.navText}>Inicio</Text>
+        <Pressable style={[styles.navButton, vistaActual === 'inscripcion' && styles.activeButton]} onPress={() => setVistaActual('inscripcion')}>
+          
+          <Text style={styles.navText}>Inscripción</Text>
+        
         </Pressable>
 
-        <Pressable
-          style={[styles.navButton, vistaActual === 'favorites' && styles.activeButton]}
-          onPress={() => setVistaActual('favorites')}
-        >
-          <Text style={styles.navText}>Favoritos ({cantidadFavoritos})</Text>
+        <Pressable style={[styles.navButton, vistaActual === 'home' && styles.activeButton]} onPress={() => setVistaActual('home')}>
+          
+          <Text style={styles.navText}>Inicio</Text>
+       
         </Pressable>
+
+        <Pressable style={[styles.navButton, vistaActual === 'favorites' && styles.activeButton]} onPress={() => setVistaActual('favorites')}>
+
+          <Text style={styles.navText}>Favoritos ({cantidadFavoritos})</Text>
+       
+       </Pressable>
       </View>
     </View>
   );
@@ -31,7 +35,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justify: 'space-between',
     alignItems: 'center',
     elevation: 4,
     shadowColor: '#000',

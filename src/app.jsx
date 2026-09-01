@@ -4,10 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import { InscripcionScreen } from './components/InscripcionScreen';
 import { obtenerPokemones } from './services/api';
 
 export default function App() {
-  const [vistaActual, setVistaActual] = useState('home');
+  const [vistaActual, setVistaActual] = useState('inscripcion'); 
   const [pokemones, setPokemones] = useState([]);
   const [busqueda, setBusqueda] = useState('');
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,23 @@ export default function App() {
     guardarFavoritosStorage(nuevos);
   };
 
+  const renderVista = () => {
+    switch (vistaActual) {
+      case 'inscripcion':
+        return <InscripcionScreen />;
+      case 'home':
+        return (
+          <Home pokemones={pokemones} busqueda={busqueda} setBusqueda={setBusqueda} loading={loading} error={error} favoritos={favoritos} agregarFavorito={agregarFavorito} quitarFavorito={quitarFavorito}/>
+        );
+      case 'favorites':
+        return (
+          <Favorites favoritos={favoritos} agregarFavorito={agregarFavorito} quitarFavorito={quitarFavorito}/>
+        );
+      default:
+        return <InscripcionScreen />;
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar backgroundColor="#e63946" barStyle="light-content" />
@@ -73,24 +91,7 @@ export default function App() {
         cantidadFavoritos={favoritos.length}
       />
       <View style={styles.appWrapper}>
-        {vistaActual === 'home' ? (
-          <Home
-            pokemones={pokemones}
-            busqueda={busqueda}
-            setBusqueda={setBusqueda}
-            loading={loading}
-            error={error}
-            favoritos={favoritos}
-            agregarFavorito={agregarFavorito}
-            quitarFavorito={quitarFavorito}
-          />
-        ) : (
-          <Favorites
-            favoritos={favoritos}
-            agregarFavorito={agregarFavorito}
-            quitarFavorito={quitarFavorito}
-          />
-        )}
+        {renderVista()}
       </View>
     </SafeAreaView>
   );
