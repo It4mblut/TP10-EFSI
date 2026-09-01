@@ -11,16 +11,16 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
     "axios": "^1.19.0",
-    "expo": "^57.0.18",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "expo": "~57.0.19",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-hook-form": "^7.87.0",
-    "react-native": "*",
+    "react-native": "0.86.3",
     "react-native-vector-icons": "^10.3.0",
     "react-native-web": "^0.21.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.25.2"
   },
   "private": true
 }
