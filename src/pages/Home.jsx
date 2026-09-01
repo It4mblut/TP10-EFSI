@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, StyleSheet, useWindowDimensions } from 'react-native';
-import SearchBar from '../components/searchbar';
+import SearchBar from '../components/SearchBar';
 import ItemList from '../components/ItemList';
 
 export default function Home({
